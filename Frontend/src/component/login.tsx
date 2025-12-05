@@ -5,10 +5,11 @@ export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
+  const baseUrl=import.meta.env.BACKEND_URL || "http://localhost:3005/api/user";
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
-    const res = await fetch("http://localhost:3005/api/user/login", {
+    const res = await fetch(`${baseUrl}/login`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ email, password }),

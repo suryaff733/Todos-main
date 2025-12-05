@@ -13,11 +13,12 @@ export default function Todos() {
   const [title, setTitle] = useState("");
   const [details, setDetails] = useState("");
   const navigate=useNavigate()
+  const baseUrl=import.meta.env.BACKEND_URL || "http://localhost:3005/api/user";
 
   const token = localStorage.getItem("token");
 
   const fetchTodos = async () => {
-    const res = await fetch("http://localhost:3005/api/user/", {
+    const res = await fetch(`${baseUrl}/`, {
       headers: { Authorization: `Bearer ${token}` },
     });
     if (res.ok) {
@@ -28,7 +29,7 @@ export default function Todos() {
 
   const addTodo = async (e: React.FormEvent) => {
     e.preventDefault();
-    const res = await fetch("http://localhost:3005/api/user/", {
+    const res = await fetch(`${baseUrl}/`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -44,7 +45,7 @@ export default function Todos() {
   };
 
   const deleteTodo = async (id: string) => {
-    await fetch(`http://localhost:3005/api/user/${id}`, {
+    await fetch(`${baseUrl}/${id}`, {
       method: "DELETE",
       headers: { Authorization: `Bearer ${token}` },
     });
