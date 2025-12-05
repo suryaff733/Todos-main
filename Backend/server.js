@@ -7,7 +7,7 @@ import router from "./routes/route.js"
 
 
 const app = express()
-const PORT=process.env.PORT
+
 const url = process.env.MONGO_URL
 
 
@@ -23,7 +23,7 @@ if(!url){
 const initDB= async()=>{
     try{
         await dbConnect(url);
-        app.listen(PORT,()=>{
+        app.listen(5005,()=>{
             console.log("Server Started")
         })
         
