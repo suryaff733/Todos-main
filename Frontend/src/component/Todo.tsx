@@ -13,7 +13,7 @@ export default function Todos() {
   const [title, setTitle] = useState("");
   const [details, setDetails] = useState("");
   const navigate=useNavigate()
-  const baseUrl=import.meta.env.BACKEND_URL || "http://localhost:3005/api/user";
+  const baseUrl=import.meta.env.VITE_BACKEND_URL ?? "http://localhost:3005/api/user";
 
   const token = localStorage.getItem("token");
 

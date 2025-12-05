@@ -5,7 +5,10 @@ export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
-  const baseUrl=import.meta.env.BACKEND_URL || "http://localhost:3005/api/user";
+  const baseUrl=import.meta.env.VITE_BACKEND_URL ?? "http://localhost:3005/api/user";
+  
+  
+  
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();

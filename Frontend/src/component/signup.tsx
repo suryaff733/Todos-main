@@ -6,7 +6,8 @@ export default function Signup() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
-  const baseUrl=import.meta.env.BACKEND_URL || "http://localhost:3005/api/user";
+  const baseUrl=import.meta.env.VITE_BACKEND_URL;
+  console.log(baseUrl)
 
   const handleSignup = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -61,7 +62,7 @@ export default function Signup() {
           Signup
         </button>
         <p
-          onClick={() => navigate("/login")}
+          onClick={() => navigate("/")}
           className="mt-4 text-center text-green-600 cursor-pointer hover:underline"
         >
           Already have an account? Login
