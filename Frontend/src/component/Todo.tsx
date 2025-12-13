@@ -58,12 +58,12 @@ export default function Todos() {
 
   const handleLogout= ()=>{
     localStorage.removeItem("token");
-    navigate("/login")
+    navigate("/")
   };
 
   useEffect(()=>{
     if(!token){
-      navigate("/login")
+      navigate("/")
     }else{
       fetchTodos();
     }
